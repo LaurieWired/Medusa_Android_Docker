@@ -35,8 +35,8 @@ Optional envinronment variables for the container include:
 - DEVICE_ARCHITECTURE: Instruction set architecture of the device. 
     - x86 container default: "x86"
     - x86 container alternative: "x64"
-    - ARM container default: "ARM64"
-    - ARM container alternative: "ARM"
+    - ARM container default: "arm64"
+    - ARM container alternative: "arm"
 - RUN_FRIDA: Whether to install and run the frida server on the device. Only do this if you already have Frida running on the target device. Otherwise, you will not be able to use most of the Medusa modules.
     - Default: true
     - Alternative: false
