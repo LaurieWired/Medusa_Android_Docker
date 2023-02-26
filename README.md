@@ -43,5 +43,5 @@ Optional envinronment variables for the container include:
 
 Use the "-e" flag to supply environment variables. For example, use the following command to set all of the previously mentioned variables to their alternative values:
 ```
-docker run -it --net=host --name medusa_container -e DEVICE_ARCHITECTURE='x64' -e EMULATOR_IP_ADDRESS='192.168.1.2' -e EMULATOR_PORT='5554' -e RUN_FRIDA='false' medusa FIXME
+docker run -it --net=host --name medusa_container -e DEVICE_ARCHITECTURE='x64' -e EMULATOR_IP_ADDRESS='192.168.1.2' -e EMULATOR_PORT='5554' -e RUN_FRIDA='false' lauriewired/docker-medusa-android-x86
 ```
