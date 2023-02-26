@@ -1,0 +1,73 @@
+{
+    "Name": "helpers/de_reflector",
+    "Description": "De-reflection observation script",
+    "Help": "https://codeshare.frida.re/@dzonerzy/dereflector/",
+    "Code": "
+console.log('-----De reflection script by @dzonerzy + mods by @ch0pin-----------------');
+
+    var internalClasses = [\"android.\", \"com.android\", \"java.lang\", \"java.io\",\"org.chromium\",\"com.google\",\"android.\", \"java.util\",\"java.nio\",\"java.sequrity\"]; // comment this for no filtering
+    var classDef = Java.use('java.lang.Class');
+    var classLoaderDef = Java.use('java.lang.ClassLoader');
+    var loadClassZ = classLoaderDef.loadClass.overload('java.lang.String', 'boolean');
+
+
+    var reflectMethod = Java.use('java.lang.reflect.Method');
+
+
+    reflectMethod.invoke.implementation = function(objObj, objArgs){
+        var class_name = this.getDeclaringClass().toString();
+        var isGood = true;
+        for (var i = 0; i < internalClasses.length; i++) {
+            if (class_name.startsWith('class '+internalClasses[i])) {
+                isGood = false;
+            }
+        }
+        if (isGood) {
+            colorLog(\"\t[+]-> Reflection.invoke: \" + class_name+'.'+this.getName(),{c:Color.Green});
+        }
+        return this.invoke(objObj,objArgs);
+
+    }
+
+
+    
+
+    classDef.forName.overloads[0].implementation = function(name){
+        var name = this.forName(name);
+        console.log(\"[i] Reflection class: \" + name,{c:Color.Yellow} );//+ \" => \" + method.toGenericString());
+        return name;
+
+    }
+    classDef.getDeclaredMethod.implementation = function(method_name, clazz){
+        
+        colorLog(\"\t[+]-> Reflection.method: \" + clazz+'.'+method_name,{c:Color.Green} );//+ \" => \" + method.toGenericString());
+        return this.getDeclaredMethod(method_name,clazz)
+
+    }
+ 
+    loadClassZ.implementation = function(class_name, resolve) {
+        var isGood = true;
+        for (var i = 0; i < internalClasses.length; i++) {
+            if (class_name.startsWith(internalClasses[i])) {
+                isGood = false;
+            }
+        }
+        if (isGood) {
+            colorLog(\"[+] Reflection.loadClass: \" + class_name,{c:Color.Yellow});
+        }
+        return loadClassZ.call(this, class_name, resolve);
+    }
+    classLoaderDef.loadClass.overload('java.lang.String').implementation = function(class_name){
+        var isGood = true;
+        for (var i = 0; i < internalClasses.length; i++) {
+            if (class_name.startsWith(internalClasses[i])) {
+                isGood = false;
+            }
+        }
+        if (isGood) {
+            colorLog(\"[+] Reflection.loadClass: \" + class_name,{c:Color.Yellow});
+        }
+        return this.loadClass(class_name);
+    }
+"
+}
