@@ -33,7 +33,7 @@ Optional envinronment variables for the container include:
 - EMULATOR_PORT: Port number that the device is running on.
     - Default: 5555
 - DEVICE_ARCHITECTURE: Instruction set architecture of the device. 
-    - x86 container default: x86. 
+    - x86 container default: "x86"
     - x86 container alternative: "x64"
     - ARM container default: "ARM64"
     - ARM container alternative: "ARM"
