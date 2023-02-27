@@ -37,7 +37,7 @@ then
 fi
 
 # Run frida if env var is not set to false
-if [ $RUN_FRIDA = "false" ]
+if [ "$RUN_FRIDA" = "false" ]
 then
   echo "Skipping frida"
 else
