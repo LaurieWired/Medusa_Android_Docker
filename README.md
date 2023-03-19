@@ -1,5 +1,12 @@
 ![medusa and docker logo](https://github.com/LaurieWired/Medusa_Android_Docker/blob/main/medusa_and_docker.png?raw=true)
+[![Docker Pulls](https://img.shields.io/docker/pulls/lauriewired/docker-medusa-android-x86.svg)](https://hub.docker.com/r/lauriewired/docker-medusa-android-x86)
+[![Docker Stars](https://img.shields.io/docker/stars/lauriewired/docker-medusa-android-x86.svg)](https://hub.docker.com/r/lauriewired/docker-medusa-android-x86)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/lauriewired/docker-medusa-android-x86/latest)](https://hub.docker.com/r/lauriewired/docker-medusa-android-x86)
+[![GitHub license](https://img.shields.io/github/license/Ch0pin/medusa)](https://github.com/Ch0pin/medusa/blob/master/LICENSE)
+[![Follow @lauriewired](https://img.shields.io/twitter/follow/lauriewired?style=social)](https://twitter.com/lauriewired)
 # Description
+
+
 Easily run the **[Medusa Framework](https://github.com/Ch0pin/medusa)** in a **Docker** container with Android Device support. 
 
 This container automates the process of connecting to the device via **ADB**, deploying **Frida** to the device, running the Frida server as a daemon on the connected device, and finally executing **Medusa** if everything is successful.
