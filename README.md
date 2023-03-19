@@ -1,3 +1,4 @@
+![medusa and docker logo](https://github.com/LaurieWired/Medusa_Android_Docker/blob/main/medusa_and_docker.png?raw=true)
 # Description
 Easily run the **[Medusa Framework](https://github.com/Ch0pin/medusa)** in a **Docker** container with Android Device support. 
 
