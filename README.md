@@ -47,13 +47,16 @@ Customize the container using the following environment variables:
 
 - **EMULATOR_IP_ADDRESS**: IP address where the device is running.
     - Default: 127.0.0.1
+    
 - **EMULATOR_PORT**: Port number that the device is running on.
     - Default: 5555
+    
 - **DEVICE_ARCHITECTURE**: Instruction set architecture of the device. 
     - x86 container default: "x86"
     - x86 container alternative: "x64"
     - ARM container default: "arm64"
     - ARM container alternative: "arm"
+    
 - **RUN_FRIDA**: Install and run the Frida server on the device. Only set to 'false' if Frida is already running on the target device, otherwise most Medusa modules will not work.
     - Default: true
     - Alternative: false
